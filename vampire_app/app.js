@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // 2. Require your Model
 const vampire = require('./populateVampires');
 // 3. Require your extra data source
-const db = require('./populateVampires')
+const db = require('./models/Vampires');
 // 4. Connect your database
 const connectionString = 'mongodb://localhost:27017/gooseDel';
 
