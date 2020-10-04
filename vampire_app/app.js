@@ -1,9 +1,10 @@
 // 1. Require Mongoose
 const mongoose = require('mongoose');
 // 2. Require your Model
-const vampire = require('./populateVampires');
+const db = require('./models/Vampire');
 // 3. Require your extra data source
-const db = require('./models/Vampires');
+const vampires = require('./populateVampires');
+
 // 4. Connect your database
 const connectionString = 'mongodb://localhost:27017/gooseDel';
 
@@ -21,6 +22,10 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (error) => {
     console.log(`MongoDB connection error: ${error}`);
 });
+
+
+console.log(db);
+
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
@@ -28,7 +33,14 @@ mongoose.connection.on('error', (error) => {
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
-
+db.Vampire.create(vampires, (err, addedVampires) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(addedVampires);
+    }
+    process.exit(); 
+});
 // ### Add some new vampire data
 
 /////////////////////////////////////////////////
