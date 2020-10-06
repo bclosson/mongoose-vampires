@@ -1,30 +1,13 @@
 // 1. Require Mongoose
 const mongoose = require('mongoose');
+
 // 2. Require your Model
-const db = require('./models/Vampire');
+const db = require('./models');
+
 // 3. Require your extra data source
 const vampires = require('./populateVampires');
 
 // 4. Connect your database
-const connectionString = 'mongodb://localhost:27017/gooseDel';
-
-mongoose.connect(connectionString, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-});
-
-mongoose.connection.on('connected', () => {
-    console.log('MongoDB succussfully connected...');
-});
-
-mongoose.connection.on('error', (error) => {
-    console.log(`MongoDB connection error: ${error}`);
-});
-
-
-console.log(db);
 
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
@@ -33,7 +16,7 @@ console.log(db);
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
-db.Vampire.create(vampires, (err, addedVampires) => {
+db.Vampire.insertMany(vampires, (err, addedVampires) => {
     if (err) {
         console.log(err);
     } else {

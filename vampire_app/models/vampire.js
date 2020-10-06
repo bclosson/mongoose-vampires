@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
+
 
 const vampireSchema = new mongoose.Schema({
     name: {
