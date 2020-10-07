@@ -67,21 +67,63 @@ const newVamps = newVampires;
 //     process.exit(); 
 // });
 // ### Add some new vampire data
-db.Vampire.insertMany(newVamps, (err, addedVamps) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(addedVamps);
-    }
-    process.exit();
-});
+// db.Vampire.insertMany(newVamps, (err, addedVamps) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(addedVamps);
+//     }
+//     process.exit();
+// });
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
+// db.Vampire.find({gender: 'f'}, (err, femaleVamps) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(femaleVamps);
+//     }
+//     process.exit();
+// });
 
+// db.Vampire.find({'victims': {$gt : 500}}, (err, greaterThan) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(greaterThan);
+//     }
+//     process.exit();
+// });
+
+// db.Vampire.find({'victims': {$lte : 150}}, (err, lessOrEqual) => {
+//     if (err) return console.log(err);
+
+//     console.log(lessOrEqual);
+
+//     process.exit();
+// });
+
+// db.Vampire.find({'victims': {$ne : 210234}}, (err, notEqualTo) => {
+//     if (err) return console.log(err)
+
+//     console.log(notEqualTo);
+
+//     process.exit();
+// });
+
+// db.Vampire.find({'victims': {$gt : 150, $lt : 500}}, (err, grThanLThan) => {
+//     if (err) return console.log(err);
+
+//     console.log(grThanLThan);
+
+//     process.exit();
+// });
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+
+
 
 /////////////////////////////////////////////////
 // ### Select with OR

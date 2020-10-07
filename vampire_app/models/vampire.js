@@ -13,8 +13,9 @@ const vampireSchema = new mongoose.Schema({
     location: String,
     gender: String,
     victims: {
-        number: Number,
-        min: 0
+        type: Number,
+        min: 0,
+        
     },
 });
 
