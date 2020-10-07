@@ -12,6 +12,7 @@ const vampireSchema = new mongoose.Schema({
     loves: Array,
     location: String,
     gender: String,
+    title: String,
     victims: {
         type: Number,
         min: 0,

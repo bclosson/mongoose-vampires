@@ -123,8 +123,37 @@ const newVamps = newVampires;
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 
+// db.Vampire.find({'title': {$exists : true}}, (err, titleExist) => {
+//     if (err) return console.log(err);
 
+//     console.log(titleExist);
 
+//     process.exit();
+// });
+
+// db.Vampire.find({'victims': {$exists : false}}, (err, noVictims) => {
+//     if (err) return console.log(err);
+
+//     console.log(noVictims);
+
+//     process.exit();
+// });
+
+// db.Vampire.find({'title': {$exists : true}, 'victims' : {$exists : false}}, (err, titleNoVic) => {
+//     if (err) return console.log(err);
+
+//     console.log(titleNoVic);
+
+//     process.exit();
+// });
+
+db.Vampire.find({'victims': {$exists : true, $gt: 1000}}, (err, victimsGr1000) => {
+    if (err) return console.log(err);
+
+    console.log(victimsGr1000);
+
+    process.exit();
+});
 /////////////////////////////////////////////////
 // ### Select with OR
 
