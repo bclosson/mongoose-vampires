@@ -147,16 +147,46 @@ const newVamps = newVampires;
 //     process.exit();
 // });
 
-db.Vampire.find({'victims': {$exists : true, $gt: 1000}}, (err, victimsGr1000) => {
-    if (err) return console.log(err);
+// db.Vampire.find({'victims': {$exists : true, $gt: 1000}}, (err, victimsGr1000) => {
+//     if (err) return console.log(err);
 
-    console.log(victimsGr1000);
+//     console.log(victimsGr1000);
 
-    process.exit();
-});
+//     process.exit();
+// });
+
 /////////////////////////////////////////////////
 // ### Select with OR
 
+// db.Vampire.find({$or : [{ location: 'New York, New York, US'} , {location: 'New Orleans, Louisiana, US'}]}, (err, fromHere) => {
+//     if (err) return console.log(err);
+
+//     console.log(fromHere);
+
+//     process.exit();
+// });
+
+// db.Vampire.find({$or : [{ loves: 'brooding'}, { loves: 'being tragic'}]}, (err, vampLoves) => {
+//     if (err) return console.log(err);
+
+//     console.log(vampLoves);
+//     process.exit();
+// });
+
+// db.Vampire.find({$or : [{victims: {$gt: 1000 }}, {loves: 'marshmallows'}]}, (err, murderMarshmallow) => {
+//     if (err) return console.log(err);
+
+//     console.log(murderMarshmallow);
+
+//     process.exit();
+// });
+
+db.Vampire.find({$or : [{hair_color: 'red'}, {eye_color: 'green'}]}, (err, hairEyes) => {
+    if (err) return console.log(err);
+
+    console.log(hairEyes);
+    process.exit();
+});
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
