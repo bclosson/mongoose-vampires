@@ -258,24 +258,46 @@ const newVamps = newVampires;
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
-db.Vampire.replaceOne({name: 'Claudia'},  
-{name: 'Eve',
-hair_color: 'purple',
-eye_color: 'orange',
-dob: new Date(1822, 5, 17, 23, 6),
-loves: ['love', 'delicious food', 'passionate kisses'],
-location: 'St. Joseph, MI, US',
-gender: 'f',
-victims: 1200,}, 
-(err, eveVamp) => {
-    if (err) return console.log(err)
+// db.Vampire.replaceOne({name: 'Claudia'},  
+// {name: 'Eve',
+// hair_color: 'purple',
+// eye_color: 'orange',
+// dob: new Date(1822, 5, 17, 23, 6),
+// loves: ['love', 'delicious food', 'passionate kisses'],
+// location: 'St. Joseph, MI, US',
+// gender: 'f',
+// victims: 1200,}, 
+// (err, eveVamp) => {
+//     if (err) return console.log(err)
 
-    console.log(eveVamp);
-    process.exit();
-});
+//     console.log(eveVamp);
+//     process.exit();
+// });
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
+// db.Vampire.findOneAndUpdate({name: 'Eve'}, {gender: 'm'}, (err, eveMale) => {
+//     if (err) return console.log(err);
+
+//     console.log(eveMale);
+//     process.exit();
+// });
+
+// db.Vampire.update({name: 'Eve'}, {$rename: {'name': 'moniker'}}, (err, eveMoniker) => {
+//     if (err) return console.log(err);
+
+//     console.log(eveMoniker);
+//     process.exit();
+// });
+
+db.Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (err, femVamp) => {
+    if (err) return console.log(err);
+
+    console.log(femVamp);
+    process.exit();
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
