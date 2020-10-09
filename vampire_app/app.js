@@ -292,17 +292,29 @@ const newVamps = newVampires;
 //     process.exit();
 // });
 
-db.Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (err, femVamp) => {
-    if (err) return console.log(err);
+// db.Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (err, femVamp) => {
+//     if (err) return console.log(err);
 
-    console.log(femVamp);
-    process.exit();
-});
+//     console.log(femVamp);
+//     process.exit();
+// });
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
+// db.Vampire.deleteOne({hair_color: 'brown'}, (err, delBrown) => {
+//     if (err) return console.log(err);
 
+//     console.log(delBrown);
+//     process.exit();
+// });
+
+db.Vampire.deleteMany({eye_color: 'blue'}, (err, fakeBlue) => {
+    if (err) return console.log(err);
+
+    console.log(fakeBlue);
+    process.exit();
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
