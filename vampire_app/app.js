@@ -213,17 +213,46 @@ const newVamps = newVampires;
 //     process.exit();
 // });
 
-db.Vampire.find({
-    $and : [{'loves' : 'fancy cloaks'},
-     {'loves' : {$nin: ['top hats', 'virgin blood']}}]}, (err, pickyVamp) => {
-    if (err) return console.log(err);
+// db.Vampire.find({
+//     $and : [{'loves' : 'fancy cloaks'},
+//      {'loves' : {$nin: ['top hats', 'virgin blood']}}]}, (err, pickyVamp) => {
+//     if (err) return console.log(err);
 
-    console.log(pickyVamp);
-    process.exit();
-});
+//     console.log(pickyVamp);
+//     process.exit();
+// });
+
+
 /////////////////////////////////////////////////
 //### Negative Selection
 
+// db.Vampire.find({$and : [{loves: 'ribbons'}, {eye_color: { $ne: 'brown'}}]}, (err, ribbonVamp) => {
+//     if (err) return console.log(err)
+
+//     console.log(ribbonVamp);
+//     process.exit();
+// });
+
+// db.Vampire.find({location: {$ne: 'Rome'}}, (err, noRome) => {
+//     if (err) return console.log(err);
+
+//     console.log(noRome);
+//     process.exit();
+// });
+
+// db.Vampire.find({loves: { $nin : ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}}, (err, lvsNothing) => {
+//     if (err) return console.log(err);
+
+//     console.log(lvsNothing);
+//     process.exit();
+// });
+
+db.Vampire.find({victims: {$lte : 200}}, (err, underVictim) => {
+    if (err) return console.log(err);
+
+    console.log(underVictim);
+    process.exit();
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
