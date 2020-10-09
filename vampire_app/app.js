@@ -54,6 +54,8 @@ const newVampires = [{
 ];
 
 const newVamps = newVampires;
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
@@ -247,16 +249,30 @@ const newVamps = newVampires;
 //     process.exit();
 // });
 
-db.Vampire.find({victims: {$lte : 200}}, (err, underVictim) => {
-    if (err) return console.log(err);
+// db.Vampire.find({victims: {$lte : 200}}, (err, underVictim) => {
+//     if (err) return console.log(err);
 
-    console.log(underVictim);
-    process.exit();
-});
+//     console.log(underVictim);
+//     process.exit();
+// });
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+db.Vampire.replaceOne({name: 'Claudia'},  
+{name: 'Eve',
+hair_color: 'purple',
+eye_color: 'orange',
+dob: new Date(1822, 5, 17, 23, 6),
+loves: ['love', 'delicious food', 'passionate kisses'],
+location: 'St. Joseph, MI, US',
+gender: 'f',
+victims: 1200,}, 
+(err, eveVamp) => {
+    if (err) return console.log(err)
 
+    console.log(eveVamp);
+    process.exit();
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
